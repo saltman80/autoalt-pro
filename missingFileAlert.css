@@ -1,0 +1,101 @@
+:root {
+  --missing-file-alert-bg: #fff6f6;
+  --missing-file-alert-border: #f5c2c7;
+  --missing-file-alert-color: #842029;
+  --missing-file-alert-icon-size: 1.25rem;
+  --missing-file-alert-padding-vertical: 0.75rem;
+  --missing-file-alert-padding-horizontal: 1rem;
+  --missing-file-alert-radius: 4px;
+  --missing-file-alert-close-size: 1rem;
+  --missing-file-alert-font-size: 0.9375rem;
+  --missing-file-alert-line-height: 1.5;
+  --missing-file-alert-hover-color: #6e1b21;
+}
+
+@keyframes missingFileAlertFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.missing-file-alert {
+  background-color: var(--missing-file-alert-bg);
+  border: 1px solid var(--missing-file-alert-border);
+  color: var(--missing-file-alert-color);
+  display: flex;
+  align-items: flex-start;
+  padding: var(--missing-file-alert-padding-vertical) var(--missing-file-alert-padding-horizontal);
+  border-radius: var(--missing-file-alert-radius);
+  position: relative;
+  font-size: var(--missing-file-alert-font-size);
+  line-height: var(--missing-file-alert-line-height);
+  animation: missingFileAlertFadeIn 0.3s ease-out both;
+}
+
+.missing-file-alert__icon {
+  flex-shrink: 0;
+  font-size: var(--missing-file-alert-icon-size);
+  margin-right: 0.75rem;
+  color: var(--missing-file-alert-color);
+}
+
+[dir="rtl"] .missing-file-alert__icon {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+.missing-file-alert__content {
+  flex: 1;
+}
+
+.missing-file-alert__message {
+  margin: 0;
+}
+
+.missing-file-alert__close {
+  position: absolute;
+  top: var(--missing-file-alert-padding-vertical);
+  right: var(--missing-file-alert-padding-horizontal);
+  background: transparent;
+  border: none;
+  color: var(--missing-file-alert-color);
+  font-size: var(--missing-file-alert-close-size);
+  line-height: 1;
+  padding: var(--missing-file-alert-padding-vertical) var(--missing-file-alert-padding-horizontal);
+  cursor: pointer;
+}
+
+[dir="rtl"] .missing-file-alert__close {
+  right: auto;
+  left: var(--missing-file-alert-padding-horizontal);
+}
+
+.missing-file-alert__close:hover,
+.missing-file-alert__close:focus {
+  color: var(--missing-file-alert-hover-color);
+}
+
+.missing-file-alert__close:focus {
+  outline: 2px solid var(--missing-file-alert-hover-color);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .missing-file-alert {
+    flex-direction: column;
+    padding: 0.5rem 0.75rem;
+  }
+  .missing-file-alert__icon {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+  [dir="rtl"] .missing-file-alert__icon {
+    margin-bottom: 0.5rem;
+    margin-left: 0.75rem;
+  }
+}
